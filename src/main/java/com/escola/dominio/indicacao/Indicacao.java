@@ -1,5 +1,6 @@
-package com.escola;
+package com.escola.dominio.indicacao;
 
+import com.escola.dominio.aluno.Aluno;
 import lombok.Data;
 
 import java.time.LocalDate;
