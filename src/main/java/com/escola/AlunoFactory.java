@@ -14,4 +14,7 @@ public class AlunoFactory {
         return this;
     }
 
+    public Aluno criar() {
+        return this.aluno;
+    }
 }
