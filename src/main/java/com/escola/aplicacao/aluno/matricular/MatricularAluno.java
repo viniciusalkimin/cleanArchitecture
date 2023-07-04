@@ -1,9 +1,6 @@
 package com.escola.aplicacao.aluno.matricular;
 
-import com.escola.dominio.aluno.Aluno;
-import com.escola.dominio.aluno.AlunoRepository;
-import com.escola.dominio.aluno.CPF;
-import com.escola.dominio.aluno.Email;
+import com.escola.dominio.aluno.*;
 import lombok.Data;
 
 @Data
@@ -11,9 +8,11 @@ public class MatricularAluno {
 
     private final AlunoRepository alunoRepository;
 
+    private AlunoFactory alunoFactory;
+
     public void matricuilar(MatricularAlunoDTO matricularAlunoDTO) {
-        Aluno novoAluno = new Aluno(new CPF(matricularAlunoDTO.getCpfAluno()),
-                matricularAlunoDTO.getNomeAluno(), new Email(matricularAlunoDTO.getEmailAluno()));
+        Aluno novoAluno = alunoFactory
+                .comNomeCPFEmail(matricularAlunoDTO.getNomeAluno(),matricularAlunoDTO.getCpfAluno(),matricularAlunoDTO.getEmailAluno()).criar();
         alunoRepository.matricular(novoAluno);
     }
 }

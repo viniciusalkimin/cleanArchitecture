@@ -20,6 +20,9 @@ public class Aluno {
     }
 
     public void adicionarTelefone(String ddd, String numero) {
+        if (telefones.size() == 2 ) {
+            throw new IllegalArgumentException("Aluno já  possui a quantidade máxima de 2 telefones.");
+        }
         var telefone = new Telefone(ddd, numero);
         telefones.add(telefone);
     }
